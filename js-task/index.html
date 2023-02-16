@@ -1,0 +1,31 @@
+<html lang="en">
+
+<head>
+    <title>Task</title>
+</head>
+
+<body>
+    <input type="text" name="my_text">
+    <div id="root"> </div>
+
+    <script src="app.js"></script>
+
+    <script>
+        var myText = document.querySelector("input[name=my_text]");
+        var root = document.getElementById("root");
+
+        myText.addEventListener("keyup", function (e) {
+            e.preventDefault()
+            let code = 0
+            for (const letter of e.target.value) {
+                code += letter.charCodeAt(0)
+            }
+            if(code>100){
+                code = code % 100
+            }
+            root.innerHTML = code
+        })
+    </script>
+</body>
+
+</html>
